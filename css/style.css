@@ -116,15 +116,27 @@ header {
 }
 
 #contacts {
-    overflow-y: visible;
+    overflow-y: scroll;
 }
 
 .user {
     display: flex;
+    flex-direction: row;
     align-items: center;
     height: 80px;
     border: 1px solid #d6d6d6;
+    cursor: pointer;
 }
+
+#data_user {
+    width: 100%;
+    padding-right: 10px;
+    text-align: right;
+    align-self: flex-start;
+    color: grey;
+}
+
+
 
 
 
@@ -191,6 +203,9 @@ header {
     text-align: right;
 }
 
+.active {
+    background-color: #e9ebeb;
+}
 
 
 

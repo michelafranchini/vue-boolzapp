@@ -86,10 +86,19 @@ var app = new Vue(
                         }
                     ],
                 },
-            ]
+            ], 
+            activeIndex : 1
         }, 
         methods: {
-
+            getImage: function (index) {
+                let imgUrl = this.contacts[index].avatar; 
+                return "img/avatar" + imgUrl + ".jpg"; 
+                // <!-- <img src="img/avatar_1.jpg" alt=""> -->
+            }
         }
     }
 )
+
+// Milestone 1:
+// Replica della grafica (immagine in allegato) con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse;
+// Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto, ricavandoli dall'array contacts qui allegato

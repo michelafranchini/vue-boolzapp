@@ -28,9 +28,11 @@
                 </div>
                 <div class="header_right">
                     <div class="icon_header_left">
-                        <img src="img/avatar_io.jpg" alt="mio_avatar" class="avatar">
-                        <h2>Nome chat</h2>
-                        <p>Ultimo accesso oggi alle 15:21</p>
+                        <img :src="getImage(activeIndex)" alt="mio_avatar" class="avatar">
+                        <div class="text_user">
+                            <h2>{{contacts[activeIndex].name}}</h2>
+                            <p>Ultimo accesso oggi alle 15:21</p>
+                        </div>
                     </div>
                     <div class="icon_header_right">
                         <i class="fas fa-search"></i>
@@ -49,20 +51,23 @@
                             <p>Attiva notifiche desktop</p>
                         </div>
                     </div>
+
                     <div id="search_bar">
                         <input type="text" name="" id="chat" placeholder="Cerca o inizia una nuova chat">
                     </div>
+
                     <div class="contacts">
-                        <div class="user">
-                            <img src="img/avatar_1.jpg" alt="avatar 1" class="avatar">
+                        <div v-for="(contact, index) in contacts" class="user" :class="(index == activeIndex) ? 'active' : '' ">
+                            <img :src="getImage(index)" class="avatar">
                             <div class="text_user">
-                                <h2>Michele</h2>
-                                <p>Tutto fatto...</p>
+                                <h2>{{contact.name}}</h2>
+                                <p>{{contact.messages[index]}}</p>
                             </div>
-                            <p>data e ora</p>
+                            <p id="data_user">data e ora</p>
                         </div>
                     </div>
                 </aside>
+                
                 
                 <section class="section_right">
                     <div id="conversation">
