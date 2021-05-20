@@ -87,13 +87,19 @@ var app = new Vue(
                     ],
                 },
             ], 
-            activeIndex : 1
+            activeIndex : 0
         }, 
         methods: {
             getImage: function (index) {
                 let imgUrl = this.contacts[index].avatar; 
                 return "img/avatar" + imgUrl + ".jpg"; 
                 // <!-- <img src="img/avatar_1.jpg" alt=""> -->
+            }, 
+            getLastMessage: function (contact) {
+                return contact.messages[contact.messages.length-1]; 
+            }, 
+            selectChat: function(contact, index) {
+                return contact(index) == activeIndex; 
             }
         }
     }
