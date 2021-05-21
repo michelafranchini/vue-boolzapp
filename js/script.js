@@ -71,7 +71,7 @@ var app = new Vue(
                 },
                 {
                     name: 'Luisa',
-                    avatar: '_4',
+                    avatar: '_6',
                     visible: true,
                     messages: [
                         {
@@ -95,16 +95,30 @@ var app = new Vue(
                 return "img/avatar" + imgUrl + ".jpg"; 
                 // <!-- <img src="img/avatar_1.jpg" alt=""> -->
             }, 
-            getLastMessage: function (contact) {
-                return contact.messages[contact.messages.length-1]; 
+            // getLastMessage: function (contact) {
+            //     return contact.messages[contact.messages.length-1]; 
+            // }, 
+            getLastMessageData: function (index) {
+                const lastMessageIndex = this.contacts[index].messages.length-1; 
+
+                return this.contacts[index].messages[lastMessageIndex].date; 
+            },
+            getLastMessageText: function (index) {
+                const lastMessageIndex = this.contacts[index].messages.length-1;
+
+                return this.contacts[index].messages[lastMessageIndex].text.substr(0, 30) + "..."; 
+            },
+            selectChat: function(newIndex) {
+                console.log(newIndex);
+                this.activeIndex = newIndex; 
             }, 
-            selectChat: function(contact, index) {
-                return contact(index) == activeIndex; 
+            selectText: function(index){
+                 
             }
         }
     }
 )
 
-// Milestone 1:
-// Replica della grafica (immagine in allegato) con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse;
-// Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto, ricavandoli dall'array contacts qui allegato
+// Milestone 2
+// Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all'interno del pannello della conversazione
+// Click sul contatto mostra la conversazione del contatto cliccato

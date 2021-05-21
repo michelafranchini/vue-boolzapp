@@ -31,7 +31,7 @@
                         <img :src="getImage(activeIndex)" alt="mio_avatar" class="avatar">
                         <div class="text_user">
                             <h2>{{contacts[activeIndex].name}}</h2>
-                            <p>Ultimo accesso il <span>{{getLastMessage(contacts[activeIndex]).date}}</span></p>
+                            <p>Ultimo accesso il <span>{{contacts[activeIndex].getLastMessageData}}</span></p>
                         </div>
                     </div>
                     <div class="icon_header_right">
@@ -57,20 +57,21 @@
                     </div>
 
                     <div class="contacts">
-                        <div v-for="(contact, index) in contacts" class="user" :class="(index == activeIndex) ? 'active' : '' " @click="selectChat(contact, index)">
-                            <img :src="getImage(index)" class="avatar">
+                        <div v-for="(contact, index) in contacts" class="user" :class="(index == activeIndex) ? 'active' : '' " @click="selectChat(index)">
+                            <img :src="getImage(index)" :alt="contact.name" class="avatar">
                             <div class="text_user">
                                 <h2>{{contact.name}}</h2>
-                                <p>{{getLastMessage(contact).text}}</p>
+                                <p>{{getLastMessageText(index)}}</p>
                             </div>
-                            <p id="data_user">{{getLastMessage(contact).date}} </p>
+                            <p id="data_user">{{getLastMessageData(index)}} </p>
                         </div>
                     </div>
                 </aside>
                 
                 
                 <section class="section_right">
-                    <div id="conversation">
+
+                    <!-- <div id="conversation" >
                         <div class="text_send">
                             <div class="text text_green">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, porro!</p>
@@ -84,7 +85,25 @@
                             </div>
                         </div>
                        
+                    </div> -->
+
+                    <div id="conversation" >
+                        <div class="text_send">
+                            <div class="text text_green">
+                                <p>{{selectText[activeIndex]}}</p>
+                                <h5>data e ora</h5>
+                            </div>
+                        </div>
+                        <div class="text_received">
+                            <div class="text text_white">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti sed eligendi est iste labore enim temporibus quam nemo, eius in.</p>
+                                <h5>data e ora</h5>
+                            </div>
+                        </div>
+                       
                     </div>
+
+
                     <div id="chat_box">
                         <i class="far fa-smile"></i>
                         <input type="text" placeholder="Scrivi un messaggio">
