@@ -183,7 +183,7 @@ header {
     height: calc(100% - 80px);
     padding: 50px;
     background-image: url('../img/mine.jpg');
-    
+    overflow-y: scroll;
 }
 
 .text {
@@ -207,7 +207,7 @@ border-radius: 10px;
     background-color: #e9ebeb;
 }
 
-.text_send {
+.text_sent {
     align-self: flex-end;
     background-color: #d5f9ba;
 }

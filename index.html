@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="css/style.css">
         <title>Boolzapp</title>
     </head>
@@ -31,7 +32,7 @@
                         <img :src="getImage(activeIndex)" alt="mio_avatar" class="avatar">
                         <div class="text_user">
                             <h2>{{contacts[activeIndex].name}}</h2>
-                            <p>Ultimo accesso il <span>{{contacts[activeIndex].getLastMessageData}}</span></p>
+                            <p>Ultimo accesso il <span>{{getLastMessageData(activeIndex)}}</span></p>
                         </div>
                     </div>
                     <div class="icon_header_right">
@@ -67,28 +68,30 @@
                         </div>
                     </div>
                 </aside>
-                
-                
+
+
                 <section class="section_right">
                     <div class="container">
                         <div id="conversation" v-for="message in contacts[activeIndex].messages">
-                            <div  
-                            :class="(message.status == 'sent') ? 'text text_send': 'text text_received'">
+                            <div
+                            :class="(message.status == 'sent') ? 'text text_sent': 'text text_received'">
                                 <p>{{message.text}}</p>
                                 <h5>{{message.date}}</h5>
                             </div>
-                        
+
                         </div>
+                       
                     </div>
 
                     <div id="chat_box">
                         <i class="far fa-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" placeholder="Scrivi un messaggio"
+                        v-model="userMessage" @keydown.enter="sendMessage">
                         <i class="fas fa-microphone"></i>
                     </div>
                 </section>
             </main>
-            
+
 
         </div>
 

@@ -1,6 +1,6 @@
 var app = new Vue(
     {
-        el: "#root", 
+        el: "#root",
         data: {
             contacts: [
                 {
@@ -46,7 +46,7 @@ var app = new Vue(
                             status: 'sent'
                         }
                     ],
-                },     
+                },
                 {
                     name: 'Samuele',
                     avatar: '_3',
@@ -85,39 +85,101 @@ var app = new Vue(
                             status: 'received'
                         }
                     ],
+                    random: [
+                        {
+                            date: "",
+                            text: "Non sei simpatico e non fai ridere nessuno",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Non credo di aver capito",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ah ah ah",
+                            status: "received"
+                        }, 
+                        {
+                            date: "",
+                            text: "Eccoci, rientriamo",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Proviamo",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Stai giocando a Guitar Hero?",
+                            status: "received"
+                        },
+                    ]
+
                 },
-            ], 
-            activeIndex : 0
-        }, 
+            ],
+            activeIndex : 0,
+            userMessage: "",
+            userData: "",
+        },
         methods: {
             getImage: function (index) {
-                let imgUrl = this.contacts[index].avatar; 
-                return "img/avatar" + imgUrl + ".jpg"; 
+                let imgUrl = this.contacts[index].avatar;
+                return "img/avatar" + imgUrl + ".jpg";
                 // <!-- <img src="img/avatar_1.jpg" alt=""> -->
-            }, 
-            // getLastMessage: function (contact) {
-            //     return contact.messages[contact.messages.length-1]; 
-            // }, 
-            getLastMessageData: function (index) {
-                const lastMessageIndex = this.contacts[index].messages.length-1; 
-
-                return this.contacts[index].messages[lastMessageIndex].date; 
             },
+            // getLastMessage: function (contact) {
+            //     return contact.messages[contact.messages.length-1];
+            // },
+            
+            getLastMessageData: function (index) {
+                const lastMessageIndex = this.contacts[index].messages.length-1;
+                
+                return this.contacts[index].messages[lastMessageIndex].date;
+            },
+
             getLastMessageText: function (index) {
                 const lastMessageIndex = this.contacts[index].messages.length-1;
 
-                return this.contacts[index].messages[lastMessageIndex].text.substr(0, 30) + "..."; 
+                return this.contacts[index].messages[lastMessageIndex].text.substr(0, 30) + "...";
             },
+
             selectChat: function(newIndex) {
-                console.log(newIndex);
-                this.activeIndex = newIndex; 
-            }, 
-            selectText: function(index){
-                 
-            }
-        }
+                this.activeIndex = newIndex;
+            },
+
+            sendMessage: function() {
+
+                this.userData = dayjs().format('DD/MM/YYYY hh:mm:ss');
+
+                const prova = this.contacts[this.activeIndex].random[Math.floor((Math.random() * (5 - 0 + 1)) + 0)].text;
+                console.log(prova);
+
+                if (this.userMessage.trim().length > 0) {
+                    this.contacts[this.activeIndex].messages.push({
+                        date: this.userData,
+                        text:  this.userMessage,
+                        status:  'sent'
+                    }), 
+
+                    this.contacts[this.activeIndex].messages.push({
+                        date: this.userData,
+                        text:  prova,
+                        status:  'received'
+                    })
+
+                } ;
+                this.userMessage = "";
+            },
+        },
     }
 )
+
+// getRandom: function(max, min) {
+//     return Math.floor((Math.random() * (max - min + 1)) + min); 
+// },
 
 // Milestone 2
 // Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all'interno del pannello della conversazione
