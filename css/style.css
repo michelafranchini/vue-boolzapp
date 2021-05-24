@@ -110,6 +110,7 @@ header {
 #search_bar input {
     width: 97%;
     height: 30px;
+    padding: 0 20px;
     border-width: 1px;
     border-style: none;
     border-color: lightgray;
@@ -216,6 +217,7 @@ border-radius: 10px;
     align-self: flex-start;
     background-color: white;
 }
+
 
 
 

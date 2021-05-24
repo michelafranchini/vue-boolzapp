@@ -268,25 +268,18 @@ var app = new Vue(
                 this.userMessage = "";
                 
             },
-
-
-            searchChat: function () {
-               
-            }
         },
+
+        computed: {
+            filteredList: function() {
+              return this.contacts.filter(contact => {
+                return contact.name.toLowerCase().includes(this.searchContact.toLowerCase())
+              })
+            }
+        }
         
     }
 )
-
-// function isInArray (element, array) {
-//     for (var i = 0; i < array.length; i++) {
-//         if (element == array[i]) {
-//             return true; 
-//         }
-//     }
-
-//     return false; 
-// }
 
 
 // getRandom: function(max, min) {
