@@ -115,7 +115,7 @@ header {
     border-color: lightgray;
 }
 
-#contacts {
+.contacts {
     overflow-y: scroll;
 }
 

@@ -24,6 +24,38 @@ var app = new Vue(
                             status: 'received'
                         }
                     ],
+                    random: [
+                        {
+                            date: "",
+                            text: "Non sei simpatico e non fai ridere nessuno",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Non credo di aver capito",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ah ah ah",
+                            status: "received"
+                        }, 
+                        {
+                            date: "",
+                            text: "Sinceramente? Non ho capito cosa vuoi dirmi",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Guarda che non sto mica a smacchiare le giraffe",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ma ti diverti davvero con così poco?",
+                            status: "received"
+                        },
+                    ]
                 },
                 {
                     name: 'Fabio',
@@ -46,6 +78,38 @@ var app = new Vue(
                             status: 'sent'
                         }
                     ],
+                    random: [
+                        {
+                            date: "",
+                            text: "Non sei simpatico e non fai ridere nessuno",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Non credo di aver capito",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ah ah ah",
+                            status: "received"
+                        }, 
+                        {
+                            date: "",
+                            text: "Sinceramente? Non ho capito cosa vuoi dirmi",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Guarda che non sto mica a smacchiare le giraffe",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ma ti diverti davvero con così poco?",
+                            status: "received"
+                        },
+                    ]
                 },
                 {
                     name: 'Samuele',
@@ -68,6 +132,38 @@ var app = new Vue(
                             status: 'received'
                         }
                     ],
+                    random: [
+                        {
+                            date: "",
+                            text: "Non sei simpatico e non fai ridere nessuno",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Non credo di aver capito",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ah ah ah",
+                            status: "received"
+                        }, 
+                        {
+                            date: "",
+                            text: "Sinceramente? Non ho capito cosa vuoi dirmi",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Guarda che non sto mica a smacchiare le giraffe",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ma ti diverti davvero con così poco?",
+                            status: "received"
+                        },
+                    ]
                 },
                 {
                     name: 'Luisa',
@@ -103,17 +199,17 @@ var app = new Vue(
                         }, 
                         {
                             date: "",
-                            text: "Eccoci, rientriamo",
+                            text: "Sinceramente? Non ho capito cosa vuoi dirmi",
                             status: "received"
                         },
                         {
                             date: "",
-                            text: "Proviamo",
+                            text: "Guarda che non sto mica a smacchiare le giraffe",
                             status: "received"
                         },
                         {
                             date: "",
-                            text: "Stai giocando a Guitar Hero?",
+                            text: "Ma ti diverti davvero con così poco?",
                             status: "received"
                         },
                     ]
@@ -123,6 +219,7 @@ var app = new Vue(
             activeIndex : 0,
             userMessage: "",
             userData: "",
+            searchContact: "", 
         },
         methods: {
             getImage: function (index) {
@@ -130,10 +227,6 @@ var app = new Vue(
                 return "img/avatar" + imgUrl + ".jpg";
                 // <!-- <img src="img/avatar_1.jpg" alt=""> -->
             },
-            // getLastMessage: function (contact) {
-            //     return contact.messages[contact.messages.length-1];
-            // },
-            
             getLastMessageData: function (index) {
                 const lastMessageIndex = this.contacts[index].messages.length-1;
                 
@@ -152,30 +245,49 @@ var app = new Vue(
 
             sendMessage: function() {
 
-                this.userData = dayjs().format('DD/MM/YYYY hh:mm:ss');
+                this.userData = dayjs().format('DD/MM/YYYY HH:mm:ss');
 
-                const prova = this.contacts[this.activeIndex].random[Math.floor((Math.random() * (5 - 0 + 1)) + 0)].text;
-                console.log(prova);
+                const randomText = this.contacts[this.activeIndex].random[Math.floor((Math.random() * (5 - 0 + 1)) + 0)].text;
+                console.log(randomText);
 
                 if (this.userMessage.trim().length > 0) {
                     this.contacts[this.activeIndex].messages.push({
                         date: this.userData,
                         text:  this.userMessage,
                         status:  'sent'
-                    }), 
+                    }),
 
-                    this.contacts[this.activeIndex].messages.push({
+                    setTimeout(() => {
+                        this.contacts[this.activeIndex].messages.push({
                         date: this.userData,
-                        text:  prova,
+                        text:  randomText,
                         status:  'received'
                     })
-
-                } ;
+                    }, 1000); 
+                }
                 this.userMessage = "";
+                
             },
+
+
+            searchChat: function () {
+               
+            }
         },
+        
     }
 )
+
+// function isInArray (element, array) {
+//     for (var i = 0; i < array.length; i++) {
+//         if (element == array[i]) {
+//             return true; 
+//         }
+//     }
+
+//     return false; 
+// }
+
 
 // getRandom: function(max, min) {
 //     return Math.floor((Math.random() * (max - min + 1)) + min); 
