@@ -54,11 +54,11 @@
                     </div>
 
                     <div id="search_bar">
-                        <input type="text" name="" id="chat" placeholder="Cerca o inizia una nuova chat" v-model="searchContact" >
+                        <input type="text" name="" id="chat" placeholder="Cerca o inizia una nuova chat" @change="search" >
                     </div>
 
                     <div class="contacts">
-                        <div v-for="(contact, index) in filteredList" class="user" :class="(index == activeIndex) ? 'active' : '' "  @click="selectChat(index)">
+                        <div v-for="(contact, index) in contacts" class="user" :class="{ 'active': index == activeIndex, 'no_display': contact.visible == false }"  @click="selectChat(index)">
                             <img :src="getImage(index)" :alt="contact.name" class="avatar">
                             <div class="text_user">
                                 <h2>{{contact.name}}</h2>

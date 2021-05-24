@@ -81,12 +81,12 @@ var app = new Vue(
                     random: [
                         {
                             date: "",
-                            text: "Non sei simpatico e non fai ridere nessuno",
+                            text: "Ma sei serio?",
                             status: "received"
                         },
                         {
                             date: "",
-                            text: "Non credo di aver capito",
+                            text: "Voglio andare a sbronzarmi",
                             status: "received"
                         },
                         {
@@ -96,17 +96,17 @@ var app = new Vue(
                         }, 
                         {
                             date: "",
-                            text: "Sinceramente? Non ho capito cosa vuoi dirmi",
+                            text: "Mah, non so davvero che pensare di te",
                             status: "received"
                         },
                         {
                             date: "",
-                            text: "Guarda che non sto mica a smacchiare le giraffe",
+                            text: "Ma sei fuori?",
                             status: "received"
                         },
                         {
                             date: "",
-                            text: "Ma ti diverti davvero con così poco?",
+                            text: "Senti, ci sentiamo un altro giorno",
                             status: "received"
                         },
                     ]
@@ -135,32 +135,32 @@ var app = new Vue(
                     random: [
                         {
                             date: "",
-                            text: "Non sei simpatico e non fai ridere nessuno",
+                            text: "Guarda, meglio che non mi rompi le scatole oggi",
                             status: "received"
                         },
                         {
                             date: "",
-                            text: "Non credo di aver capito",
+                            text: "Oh piano con le offese",
                             status: "received"
                         },
                         {
                             date: "",
-                            text: "Ah ah ah",
+                            text: "Gira al largo chicco",
                             status: "received"
                         }, 
                         {
                             date: "",
-                            text: "Sinceramente? Non ho capito cosa vuoi dirmi",
+                            text: "Ma vattelapesca",
                             status: "received"
                         },
                         {
                             date: "",
-                            text: "Guarda che non sto mica a smacchiare le giraffe",
+                            text: "Guarda che non sto mica a smacchiare i giaguari",
                             status: "received"
                         },
                         {
                             date: "",
-                            text: "Ma ti diverti davvero con così poco?",
+                            text: "Ma sei scemo?",
                             status: "received"
                         },
                     ]
@@ -178,6 +178,61 @@ var app = new Vue(
                         {
                             date: '10/01/2020 15:50:00',
                             text: 'Si, ma preferirei andare al cinema',
+                            status: 'received'
+                        }
+                    ],
+                    random: [
+                        {
+                            date: "",
+                            text: "Preferirei una mattonata in testa",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Cuore, levati di torno",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Oh ciccio stai calmino",
+                            status: "received"
+                        }, 
+                        {
+                            date: "",
+                            text: "Vado ad ubriacarmi e torno",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Preferirei morire",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Non ti rispondo nemmeno",
+                            status: "received"
+                        },
+                    ]
+
+                },
+                {
+                    name: 'Giannetto',
+                    avatar: '_4',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            text: 'Ho voglia di sushi',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            text: 'Andiamo al giapponese?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 16:15:22',
+                            text: 'Ti aspetto sotto casa!',
                             status: 'received'
                         }
                     ],
@@ -213,13 +268,119 @@ var app = new Vue(
                             status: "received"
                         },
                     ]
-
+                },
+                {
+                    name: 'Birbino',
+                    avatar: '_5',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            text: 'Vorrei andare a fare shopping',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            text: 'Andiamo al centro commerciale?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 16:15:22',
+                            text: 'Okey!',
+                            status: 'received'
+                        }
+                    ],
+                    random: [
+                        {
+                            date: "",
+                            text: "Non sei simpatico e non fai ridere nessuno",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Non credo di aver capito",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ah ah ah",
+                            status: "received"
+                        }, 
+                        {
+                            date: "",
+                            text: "Sinceramente? Non ho capito cosa vuoi dirmi",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Guarda che non sto mica a smacchiare le giraffe",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ma ti diverti davvero con così poco?",
+                            status: "received"
+                        },
+                    ]
+                },
+                {
+                    name: 'Gianpippo',
+                    avatar: '_8',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            text: 'Hai portato a spasso il cane?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            text: 'Ricordati di dargli da mangiare',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 16:15:22',
+                            text: 'Tutto fatto!',
+                            status: 'received'
+                        }
+                    ],
+                    random: [
+                        {
+                            date: "",
+                            text: "Non sei simpatico e non fai ridere nessuno",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Non credo di aver capito",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ah ah ah",
+                            status: "received"
+                        }, 
+                        {
+                            date: "",
+                            text: "Sinceramente? Non ho capito cosa vuoi dirmi",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Guarda che non sto mica a smacchiare le giraffe",
+                            status: "received"
+                        },
+                        {
+                            date: "",
+                            text: "Ma ti diverti davvero con così poco?",
+                            status: "received"
+                        },
+                    ]
                 },
             ],
             activeIndex : 0,
             userMessage: "",
             userData: "",
-            searchContact: "", 
         },
         methods: {
             getImage: function (index) {
@@ -268,16 +429,17 @@ var app = new Vue(
                 this.userMessage = "";
                 
             },
-        },
-
-        computed: {
-            filteredList: function() {
-              return this.contacts.filter(contact => {
-                return contact.name.toLowerCase().includes(this.searchContact.toLowerCase())
-              })
+            search: function(event) {
+                const searchInput = event.target.value;
+                return this.contacts.map(contact => {
+                    if (contact.name.toLowerCase().includes(searchInput.toLowerCase())) {
+                        contact.visible = true;
+                    }  else {
+                        contact.visible = false;
+                    }
+                })
             }
-        }
-        
+        },
     }
 )
 
