@@ -74,8 +74,17 @@
                     <div class="container">
                         <div id="conversation" v-for="message in contacts[activeIndex].messages">
                             <div
-                            :class="(message.status == 'sent') ? 'text text_sent': 'text text_received'">
+                            :class="(message.status == 'sent') ? 'text text_sent': 'text text_received'" class="message">
                                 <p>{{message.text}}</p>
+                                <i class="fas" :class="dropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'"
+                                @click="dropdownToggle(index)">
+                                    <div class="dropdown" v-show="dropdownOpen == true && msgIndex == index">
+                                        <div class="dropdown-content">
+                                            <a href="#home">Message info</a>
+                                            <a href="#about" @click="deleteMsg(msgIndex)">Delete Message</a>
+                                        </div>
+                                    </div>
+                                </i>
                                 <h5>{{message.date}}</h5>
                             </div>
 

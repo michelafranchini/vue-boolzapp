@@ -381,6 +381,8 @@ var app = new Vue(
             activeIndex : 0,
             userMessage: "",
             userData: "",
+            msgIndex : 0,
+            dropdownOpen: false 
         },
         methods: {
             getImage: function (index) {
@@ -406,21 +408,23 @@ var app = new Vue(
 
             sendMessage: function() {
 
-                this.userData = dayjs().format('DD/MM/YYYY HH:mm:ss');
+                // this.userData = dayjs().format('DD/MM/YYYY HH:mm:ss');
 
                 const randomText = this.contacts[this.activeIndex].random[Math.floor((Math.random() * (5 - 0 + 1)) + 0)].text;
                 console.log(randomText);
 
+                
+
                 if (this.userMessage.trim().length > 0) {
                     this.contacts[this.activeIndex].messages.push({
-                        date: this.userData,
+                        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                         text:  this.userMessage,
                         status:  'sent'
                     }),
 
                     setTimeout(() => {
                         this.contacts[this.activeIndex].messages.push({
-                        date: this.userData,
+                        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                         text:  randomText,
                         status:  'received'
                     })
@@ -438,6 +442,18 @@ var app = new Vue(
                         contact.visible = false;
                     }
                 })
+            }, 
+            dropdownToggle: function(index) {
+                this.msgIndex = index;
+                this.dropdownOpen = !this.dropdownOpen;
+            },
+    
+            deleteMsg: function(msgIndex) {            
+                this.selectChat().messages.splice(msgIndex, 1);
+                if (this.selectChat().messages.length == 0) { 
+                    this.contacts.splice(this.activeIndex, 1);
+                }
+                this.dropdownOpen = false;
             }
         },
     }
